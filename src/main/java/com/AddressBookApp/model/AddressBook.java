@@ -1,8 +1,17 @@
 package com.AddressBookApp.model;
 
-import com.AddressBookApp.dto.AddressBookDto;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import com.AddressBookApp.dto.AddressBookDto;
+@Entity
+@Table(name="Addressbook")
 public class AddressBook {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	String firstName;
 	String address;

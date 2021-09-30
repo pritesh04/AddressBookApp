@@ -16,8 +16,10 @@ public class AddressBookAppApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(AddressBookAppApplication.class, args);
-//		log.info("Employee Payroll App started in {} Envoronment",
-//				context.getEnvironment().getProperty("environment"));
+
+		
+		
+	
 	}
 
 }

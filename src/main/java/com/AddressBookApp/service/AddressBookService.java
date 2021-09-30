@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 
 import com.AddressBookApp.dto.AddressBookDto;
 import com.AddressBookApp.model.AddressBook;
+import com.AddressBookApp.repo.AddressBookRepo;
 
 @Service
 public class AddressBookService implements IAddressBookService {
 
 	public  List<AddressBook> list = new ArrayList<AddressBook>();
 	
+	@Autowired
+	AddressBookRepo addressBookRepo;
 	
 	@Override
 	public List<AddressBook> getData() {
@@ -51,4 +54,9 @@ public class AddressBookService implements IAddressBookService {
 		list.remove(id-1);
 	}
 
+	
+	public List<AddressBookRepo> getAll()
+	{
+		return addressBookRepo.findAll();
+	}
 }
