@@ -1,9 +1,16 @@
 package com.AddressBookApp.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 public class AddressBookDto {
+	
+	
+	@NotEmpty
 	public String firstName;
 	public	String address;
 	public	String phoneNumber;
