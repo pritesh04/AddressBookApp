@@ -18,7 +18,15 @@ public class Exception {
 		return new ResponseEntity<String>("Message cant be Empty", HttpStatus.NOT_FOUND);
 
 	}
+	@ExceptionHandler(NoSuchElementException.class)
+	public ResponseEntity<String> noIdPresent(NoSuchElementException exception) {
+		return new ResponseEntity<String>("No id present", HttpStatus.BAD_REQUEST);
+	}
 
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<String> parentException(Exception e) {
+		return new ResponseEntity<String>("Something went wrong ", HttpStatus.BAD_REQUEST);
+	}
 
 	
 	
