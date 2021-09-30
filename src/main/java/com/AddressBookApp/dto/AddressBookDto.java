@@ -10,7 +10,7 @@ import lombok.NonNull;
 public class AddressBookDto {
 	
 	
-	@NotEmpty
+	@Pattern(regexp="^[A-Z]{1}[a-zA-Z\\s]{2,}$",message="Employee name Invalid")
 	public String firstName;
 	public	String address;
 	public	String phoneNumber;

@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
-@lombok.extern.java.Log
 public class AddressBookAppApplication {
 
 	public static void main(String[] args) {

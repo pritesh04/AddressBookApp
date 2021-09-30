@@ -1,5 +1,6 @@
 package com.AddressBookApp.controller;
 
+import java.nio.file.Path;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,7 +54,7 @@ public class AddressBookController {
 	}
 
 	@GetMapping("/getid/{id}")
-	public ResponseEntity<ResponseDto> getId(@RequestParam(value = "id") int id) {
+	public ResponseEntity<ResponseDto> get( @PathVariable(value = "id") int id) {
 		AddressBook ad;
 		ad = service.getById(id);
 		ResponseDto res = new ResponseDto("Added", ad);
@@ -67,16 +69,16 @@ public class AddressBookController {
 		return new ResponseEntity<ResponseDto>(res, HttpStatus.OK);
 	}
 
-	@PutMapping("/update")
-	public ResponseEntity<ResponseDto> update(@RequestParam(value = "id") int id, AddressBookDto aDto) {
+	@PutMapping("/update/{id}")
+	public ResponseEntity<ResponseDto> update(@PathVariable(value = "id") int id, AddressBookDto aDto) {
 		AddressBook ad;
 		ad = service.updateData(id, aDto);
 		ResponseDto res = new ResponseDto("Updated", ad);
 		return new ResponseEntity<ResponseDto>(res, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/delete")
-	public ResponseEntity<ResponseDto> deleteId(@RequestParam(value = "id") int id) {
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<ResponseDto> deleteId(@PathVariable(value ="id") int id) {
 		AddressBook ad = null;
 		service.deleteData(id);
 		ResponseDto res = new ResponseDto("Deleted", ad);
