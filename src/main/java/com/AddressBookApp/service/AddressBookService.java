@@ -14,9 +14,9 @@ import com.AddressBookApp.repo.AddressBookRepo;
 public class AddressBookService implements IAddressBookService {
 
 	public  List<AddressBook> list = new ArrayList<AddressBook>();
-	
-	@Autowired
-	AddressBookRepo addressBookRepo;
+//	
+//	@Autowired
+//	AddressBookRepo addressBookRepo;
 	
 	@Override
 	public List<AddressBook> getData() {
@@ -55,8 +55,5 @@ public class AddressBookService implements IAddressBookService {
 	}
 
 	
-	public List<AddressBookRepo> getAll()
-	{
-		return addressBookRepo.findAll();
-	}
+	
 }
