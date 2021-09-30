@@ -3,7 +3,7 @@ package com.AddressBookApp.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.jni.Address;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.AddressBookApp.dto.AddressBookDto;
@@ -12,7 +12,9 @@ import com.AddressBookApp.model.AddressBook;
 @Service
 public class AddressBookService implements IAddressBookService {
 
-	public List<AddressBook> list = new ArrayList<AddressBook>();
+	public  List<AddressBook> list = new ArrayList<AddressBook>();
+	
+	
 	@Override
 	public List<AddressBook> getData() {
 
@@ -26,9 +28,9 @@ public class AddressBookService implements IAddressBookService {
 
 	@Override
 	public AddressBook addData(AddressBookDto addressBookDto) {
-		int id= list.size();
-		id=+1;
-		AddressBook ad= new AddressBook(id,addressBookDto);
+		 
+		
+		AddressBook ad= new AddressBook(list.size()+1,addressBookDto);
 		list.add(ad);
 		return ad;
 	}

@@ -11,7 +11,7 @@ public interface IAddressBookService {
 
 	List<AddressBook> getData();
 	AddressBook getById(int contactid);
-	AddressBook addData(AddressBookDto addressBookDto);
+	AddressBook addData(AddressBookDto addressBook);
 	AddressBook updateData(int contactid, AddressBookDto addressBookDto);
 	void deleteData(int id);
 }
